@@ -1,3 +1,2 @@
-#!/bin/bas
-#include <stdio.h>
-int main ($CFILE)
+#!/bin/bash
+gcc $CFILE > c
