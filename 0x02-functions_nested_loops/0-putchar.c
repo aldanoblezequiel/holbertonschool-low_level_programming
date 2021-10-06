@@ -1,4 +1,4 @@
-#include <stdio.h>
+#include "main.h"
 /**
 *main -First function (SIEMPRE LA DESCRIPCION DEL MAIN VA PRIMERO!!!!)
 *Return: 0
