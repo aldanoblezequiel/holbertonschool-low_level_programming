@@ -1,5 +1,4 @@
 #include "main.h"
-#include <stdio.h>
 /**
 *print_alphabet_x10 -Alpha x 10
 *Return: 0
