@@ -1,16 +1,24 @@
 #include "main.h"
+
 /**
-*print_alphabet_x10 -Alpha x 10
-*Return: 0
+*print_alphabet_x10 - a function gives last digit form SRAND
+*Return: x10 a-z
 */
+
 void print_alphabet_x10(void)
 {
-	int alpha, n;
 
-	for (n = 0; n <= 9; n++)
+	int i, n;
+
+	n = 0;
+
+	while (n < 10)
 	{
-		for (alpha = 'a' ; alpha <= 'z' ; alpha++)
-		_putchar (alpha * 10);
-		_putchar ('\n');
+		for (i = 'a'; i <= 'z'; i++)
+		{
+			_putchar(i);
+		}
+		n++;
+		_putchar('\n');
 	}
 }
