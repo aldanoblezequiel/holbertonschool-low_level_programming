@@ -1,11 +1,20 @@
 #include "main.h"
 /**
-*_strlen -First function (SIEMPRE LA DESCRIPCION DEL MAIN VA PRIMERO!!!!)
-*Return: 0
-*@s: char variable
-*/
+ * _strlen - this function takes a string pointer and returns
+ * the lenght
+ *
+ * @s: the pointer to the string
+ *
+ * Return: number of indexes
+ */
 int _strlen(char *s)
 {
-	_strlen(s);
-	return (0);
+	int lenght = 0;
+
+	while (*(s + lenght) != 0)
+	{
+		lenght++;
+	}
+
+	return (lenght);
 }
