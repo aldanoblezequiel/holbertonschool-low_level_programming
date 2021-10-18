@@ -8,9 +8,19 @@
 char *_strchr(char *s, char c)
 {
 	int a;
+	char *p;
 
 	for (a = 0; s[a] != c && s[a] != '\0'; a++)
 	{
 	}
-	return (s);
+	if (s[a] == c)
+	{
+		p = &s[a];
+	}
+	else
+	{
+		p = '\0';
+	}
+
+	return (p);
 }
