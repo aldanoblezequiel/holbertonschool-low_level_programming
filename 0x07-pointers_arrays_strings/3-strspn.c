@@ -1,10 +1,15 @@
 #include "main.h"
 /**
-*_strspn -First function (SIEMPRE LA DESCRIPCION DEL MAIN VA PRIMERO!!!!)
+*_strspn -Returns the number of bytes in the initial segment of a string
 *Return: 0
 */
 unsigned int _strspn(char *s, char *accept);
 {
-        ;
-        return (0);
+	int count = 0;
+
+	for (int i = 0; s[i] != '\0'; i++)
+	{
+		for(int j = 0; j accept[j] != '\0'; j ++)
+
+	return (0);
 }
