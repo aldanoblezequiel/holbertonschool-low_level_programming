@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 #include "main.h"
 /**
 *main -Function that returns its own name
@@ -15,10 +16,10 @@ int main(int argc, char *argv[])
 
 	if (argc == 3)
 	{
-		i = argc;
-		j = argc;
+		i = atoi(argv[1]);
+		j = atoi(argv[2]);
 		p = i * j;
-		printf("%s\n", argv[p]);
+		printf("%d\n", p);
 	}
 	else
 	{
