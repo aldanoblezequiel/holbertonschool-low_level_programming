@@ -1,8 +1,9 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "main.h"
+#include <ctype.h>
 /**
-*main -Function that returns its own name
+*main -Function that returns addition of two ints
 *@argc: int variable
 *@argv: char variable
 *Return: 0
@@ -12,19 +13,27 @@ int main(int argc, char *argv[])
 {
 	int i;
 	int j;
-	int p;
+	int add;
 
-	if (argc > 0)
+	if (argc == 1)
 	{
-		i = atoi(argv[1]);
-		j = atoi(argv[2]);
-		p = i + j;
-		printf("%d\n", p);
+		printf("%d\n", 0);
 	}
 	else
 	{
-		printf("Error\n");
-		return (1);
+	for (i = 1; i < argc; i++)
+	{
+		for (j = 0; argv[i][j] != '\0'; j++)
+		{
+			if (!isdigit(argv[i][j]))
+			{
+			printf("Error\n");
+			return (1);
+			}
+		}
+		add += atoi(argv[i]);
+	}
+	printf("%d\n", add);
 	}
 	return (0);
 }
