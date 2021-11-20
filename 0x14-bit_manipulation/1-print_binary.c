@@ -7,19 +7,26 @@
 
 void print_binary(unsigned long int n)
 {
-	unsigned long int a = 0, i = 63, j = 0;
+	unsigned int aux_n;
+	int a, flag = 0;
 
-	while (i--)
+	if (n == 0)
 	{
-		a = n >> i;
-		if (a & 1)
+		_putchar('0');
+		return;
+	}
+
+	for (a = 63; a >= 0; a--)
+	{
+		aux_n = n >> a;
+
+		if (aux_n & 1)
 		{
 			_putchar('1');
-			j++;
+			flag++;
 		}
-		else if (j)
-			_putchar ('0');
+		else if (flag > 0)
+			_putchar('0');
+
 	}
-	if (!j)
-		_putchar('0');
 }
