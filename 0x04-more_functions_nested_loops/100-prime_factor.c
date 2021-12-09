@@ -1,5 +1,5 @@
 #include <stdio.h>
-
+long prime(long n);
 /**
  *main - function
  *Return: void
@@ -7,17 +7,26 @@
 
 int main(void)
 {
-	long int execute;
-	long int primes = 2;
-	long int max = 612852475143;
+	long num, div;
 
-	for (execute = primes; execute <= 612852475143;)
+	/*num = 2547;*/
+	num = 612852475143;
+	div = 2;
+
+	while (div < num / 2)
 	{
-		if (max % primes == 0)
+		if (num % div == 0)
 		{
-			printf("%lu", primes);
-			break;
+			num /= div;
+			div = 2;
+		}
+		else
+		{
+			div++;
 		}
 	}
+
+	printf("%ld\n", num);
+
 	return (0);
 }
