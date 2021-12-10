@@ -7,6 +7,6 @@
  * @argv: File to paste
  * Return: 0
  */
-int main(int argc, char *argv[])
-{
-}
+
+
+																								
