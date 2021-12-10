@@ -3,21 +3,56 @@
 #include <stdlib.h>
 
 /**
-* struct new_dog - dogxd
-* @name: name
-* @age: age
-* @owner: owner
+* _strdup - wtf
+* @str: char var
 * Return: 0
-* new_dog - ni idea
 */
 
+char *_strdup(char *str)
+{
+	unsigned int pos, len;
+	char *dup;
+
+	if (!str)
+		return (NULL);
+	for (len = 0; str[len] != 0;)
+		len++;
+	dup = (char *)malloc((sizeof(char) * len + 1));
+	if (dup == NULL)
+		return (NULL);
+	for (pos = 0; pos <= len; pos++)
+	{
+		dup[pos] = str[pos];
+	}
+	return (dup);
+}
+/**
+  * new_dog - hace dog xd
+  * @name: nombre
+  * @age: edad
+  * @owner: dueno
+  * Return: 0
+  */
 dog_t *new_dog(char *name, float age, char *owner)
 {
-	struct new_dog
+	dog_t *d;
+
+	d = malloc(sizeof(dog_t));
+	if (!d)
+		return (NULL);
+	d->name = _strdup(name);
+	if (!(d->name))
 	{
-		char *name;
-		char *owner;
-		float age;
+		free(d);
+		return (NULL);
 	}
-	new_dog->name = dog->name;
+	d->owner = _strdup(owner);
+	if (!(d->owner))
+	{
+		free(d->name);
+		free(d);
+		return (NULL);
+	}
+	d->age = age;
+	return (d);
 }
