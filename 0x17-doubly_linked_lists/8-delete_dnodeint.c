@@ -1,48 +1,50 @@
 #include "lists.h"
+
 /**
- * delete_dnodeint_at_index - de
- * @head: p
- * @index: in
- * Return: 1
+ * dlistint_len -  Return length
+ * @h: Ptr
+ * Return: n var
  */
+
+size_t dlistint_len(const dlistint_t *h)
+{
+	unsigned int n = 0;
+
+	if (!h)
+		return (0);
+	while (h)
+	{
+		n++;
+		h = h->next;
+	}
+	return (n);
+
+}
+
+/**
+ * delete_dnodeint_at_index - Deelte idx
+ * @head: Ptr
+ * @index: index xd
+ * Return: the node
+ */
+
 int delete_dnodeint_at_index(dlistint_t **head, unsigned int index)
 {
-	dlistint_t *aux, *tmp = (*head);
-	unsigned int pos = 0;
+	dlistint_t *recorre = *head;
+	unsigned int largo = dlistint_len(recorre);
 
-	if (!(*head))
+	if (!head || !*head || index >= largo)
 		return (-1);
-	if (index == 0 && !tmp->next)
+	while (index--)
 	{
-		(*head) = NULL;
-		free(*head);
-		return (1);
+		recorre = recorre->next;
 	}
-	if (index == 0 && tmp->next)
-	{
-		aux = tmp->next, aux->prev = NULL;
-		free(tmp);
-		(*head) = aux;
-		return (1);
-	}
-	while (tmp)
-	{
-		if (pos == index && !tmp->next)
-		{
-			aux = tmp->prev,  aux->next = NULL;
-			free(tmp);
-			return (1);
-		}
-		if (pos == index - 1 && tmp->next)
-		{
-			aux = tmp->next;
-			tmp->next = tmp->next->next;
-			(tmp->next)->prev = tmp;
-			free(aux);
-			return (1);
-		}
-		tmp = tmp->next;
-		pos++;
-	}
-	return (-1);
+	if (recorre->prev)
+		recorre->prev->next = recorre->next;
+	if (recorre->next)
+		recorre->next->prev = recorre->prev;
+	if (recorre == *head)
+		*head = recorre->next;
+	free(recorre);
+	return (1);
 }
