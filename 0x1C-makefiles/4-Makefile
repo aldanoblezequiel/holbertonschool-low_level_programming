@@ -1,0 +1,32 @@
+# created a excecutable 
+# Rules: -all: builds executables
+# - clean: deletes all temporary
+# - oclean: deletes the objects files
+# - fclean: deletes all temporari files
+# - re: forces all sources files
+# Variables: CC- the compiler
+# SRC- the .c
+# OBJ- the .o
+# NAME- the executable
+# RM: delete files
+# CFLAGS: your favorite compiler
+
+CC = gcc
+SRC = main.c school.c
+OBJ = $(SRC:.c=.o)
+NAME = school
+RM = rm -f
+CFLAGS = -Wall -Werror -Wextra -pedantic
+
+all: $(OBJ)
+	$(CC) $(OBJ) $(CFLAGS) -o $(NAME)
+
+clean: 
+	$(RM) *~ $(NAME)
+
+oclean: 
+	$(RM) $(OBJ)
+
+fclean: clean oclean 
+
+re: fclean all
